@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilog na Input Type na Image</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <form action="#">
+    <label for="profilePic">
+      <div class="circle">
+        <img id="profilePicPreview" src="img/avatar.svg" alt="Profile Picture">
+      </div>
+      <input type="file" id="profilePic" accept="image/*" onchange="previewImage();">
+    </label>
+  </form>
+  <script>
+    function previewImage() {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('profilePicPreview').src = e.target.result;
+      }
+      reader.readAsDataURL(document.getElementById('profilePic').files[0]);
+    }
+  </script>
+  <style>
+    .circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .circle img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    input[type="file"] + label {
+      cursor: pointer;
+    }
+  </style>
+</body>
+</html>
+    <!-- <div class="container">
+        <form action="" id="contactForm">
+            <div class="alert">Registration Form</div>
+
+            <div class="inputBox">
+                <input type="text" id="username" placeholder="Your username...." />
+            </div>
+
+            <div class="inputBox">
+                <input type="email" id="emailid" placeholder="Your Email....." />
+            </div>
+
+            <div class="inputBox">
+                <input type="file" id="profileImg" accept="image/*" />
+            </div>
+
+            <div class="inputBox">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div> -->
+    <!-- <h1>User Registration</h1>
+  <form id="registerForm">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="profileImg">Profile Image URL:</label>
+    <input type="file" id="profileImg" name="profileImg" accept="image/*" required><br><br>
+   <button type="submit">Register</button>
+  </form> -->
+  

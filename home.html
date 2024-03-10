@@ -1,0 +1,17 @@
+<button onclick="logoutUser()">Logout</button>
+<script>
+  function logoutUser() {
+    firebase.auth().signOut().then(() => {
+      // Sign-out successful.
+      alert("User logged out successfully!");
+      window.location = 'index.html'; // Redirect to login page after logout
+    }).catch((error) => {
+      // An error happened.
+      console.error("Logout Error:", error);
+      alert("Error logging out!");
+    });
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./app.js"></script>
+  
