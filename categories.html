@@ -8,7 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- My CSS -->
     <link rel="stylesheet" href="content.css">
-
+    <script src="js/categories.js" defer></script>
     <title>Sellify-Categories</title>
 </head>
 <body>
@@ -28,13 +28,13 @@
 			</a>
 		</li>
 		<li  class="active">
-			<a href="#caregories.html">
+			<a href="caregories.html">
 				<i class='bx bxs-shopping-bag-alt' ></i>
 				<span class="text">Categories</span>
 			</a>
 		</li>
         <li>
-            <a href="#">
+            <a href="sell.html">
                 <i class='bx bxs-doughnut-chart' ></i>
                 <span class="text">Sell</span>
             </a>
@@ -136,16 +136,36 @@
             </div>
         </div>
         <div style="display: flex; flex-wrap: wrap;">
-            <button style="background-color: red; padding: 5px 10px; margin: 5px; font-size: 16px; border: none; border-radius: 5px;" onclick="filterItems('Women Fashion')">Women Fashion</button>
-            <button style="background-color: blue; padding: 5px 10px; margin: 5px; font-size: 16px; border: none; border-radius: 5px;" onclick="filterItems('Men Fashion')">Men Fashion</button>
-            <button style="background-color: yellow; padding: 5px 10px; margin: 5px; font-size: 16px; border: none; border-radius: 5px;" onclick="filterItems('Baby and Kids')">Baby and Kids</button>
-            <button style="background-color: green; padding: 5px 10px; margin: 5px; font-size: 16px; border: none; border-radius: 5px;" onclick="filterItems('Sports and Recreation')">Sports and Recreation</button>
-            <button style="background-color: orange; padding: 5px 10px; margin: 5px; font-size: 16px; border: none; border-radius: 5px;" onclick="filterItems('Beauty and health car')">Beauty and health car</button>
-            <button style="background-color: purple; padding: 5px 10px; margin: 5px; font-size: 16px; border: none; border-radius: 5px;" onclick="filterItems('Home Appliances')">Home Appliances</button>
-            <button style="background-color: pink; padding: 5px 10px; margin: 5px; font-size: 16px; border: none; border-radius: 5px;" onclick="filterItems('Furniture and Home Decor')">Furniture and Home Decor</button>
-            <button style="background-color: cyan; padding: 5px 10px; margin: 5px; font-size: 16px; border: none; border-radius: 5px;" onclick="filterItems('Cars')">Cars</button>
-            <button style="background-color: brown; padding: 5px 10px; margin: 5px; font-size: 16px; border: none; border-radius: 5px;" onclick="filterItems('Gadgets')">Gadgets</button>
-            <button style="background-color: grey; padding: 5px 10px; margin: 5px; font-size: 16px; border: none; border-radius: 5px;" onclick="filterItems('Pet Supplies')">Pet Supplies</button>
+            <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;" onclick="filterItems('Women Fashion')">
+                <img src="img/women.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;"> Women Fashion
+            </button>
+            <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Men Fashion')">
+                <img src="img/men.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Men Fashion</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Baby and Kids')">
+                    <img src="img/baby.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Baby and Kids</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Sports and Recreation')">
+                    <img src="img/sport.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Sports and Recreation</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Beauty and health car')">
+                    <img src="img/shampoo.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Beauty and health car</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Home Appliances')">
+                    <img src="img/electricappliance.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Home Appliances</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Furniture and Home Decor')">
+                    <img src="img/furniturestore.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Furniture and Home Decor</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Cars')">
+                    <img src="img/car.jpg" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Cars</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Gadgets')">
+                    <img src="img/gadgets.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Gadgets</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Pet Supplies')">
+                    <img src="img/petsupplies.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Pet Supplies</button>
         </div>
 
         <div id="itemsContainer">
@@ -284,70 +304,7 @@
 <!-- Add Firebase products that you want to use -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
-<script>
-    // Initialize Firebase
-    var firebaseConfig = {
-        apiKey: "AIzaSyDCELekaelvtROWv6lL_JaJwJ6LOwSGgUs",
-        authDomain: "sellify-493fa.firebaseapp.com",
-        databaseURL: "https://sellify-493fa-default-rtdb.firebaseio.com",
-        projectId: "sellify-493fa",
-        storageBucket: "sellify-493fa.appspot.com",
-        messagingSenderId: "479130711275",
-        appId: "1:479130711275:web:009adba18cee85b296faae"
-    };
-    firebase.initializeApp(firebaseConfig);
 
-    // Reference to items in the database
-    var itemsRef = firebase.database().ref('Items');
-
-    firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in, get the user ID
-    var uid = user.uid;
-    
-    // Reference to the user's profile in the database
-    var userProfileRef = firebase.database().ref('users/' + uid);
-
-    // Get the profile data from the database
-    userProfileRef.once('value').then(function(snapshot) {
-      var profileData = snapshot.val(); // Makuha ang lahat ng data ng profile
-      
-      // Get the profile image URL
-      var profileImgUrl = profileData.profileImg;
-
-      // Get the username
-      var username = profileData.username;
-
-      // Set the profile image src attribute
-      if (profileImgUrl) { 
-        document.getElementById('userProfileImage').src = profileImgUrl;
-      }
-
-      // Set the username inside the div
-      if (username) {
-        document.getElementById('usernameParagraph').innerText = username;
-      }
-    }).catch(function(error) {
-      console.log("Error fetching user data:", error);
-    });
-  } else {
-    // No user is signed in.
-    console.log("No user is signed in.");
-  }
-});
-
-    function logoutUser() {
-        firebase.auth().signOut().then(() => {
-            // Sign-out successful.
-            //alert("User logged out successfully!");
-            window.location = 'index.html'; // Redirect to login page after logout
-        }).catch((error) => {
-            // An error happened.
-            console.error("Logout Error:", error);
-            alert("Error logging out!");
-        });
-    }
-</script>
 
 </body>
 </html>

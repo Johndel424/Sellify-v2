@@ -70,18 +70,18 @@ function loginUser(event) {
     });
 }
 
-//Check if user is already logged in or not on page load
-// document.addEventListener("DOMContentLoaded", function() {
-//   firebase.auth().onAuthStateChanged((user) => {
-//     if (user) {
-//       // User is signed in, redirect to home.html
-//       window.location = 'home.html';
-//     } else {
-//       // No user is signed in, stay on index.html for login or registration
-//       // Optionally, you can add logic here if you need to show or hide elements based on login status
-//     }
-//   });
-// });
+// Check if user is already logged in or not on page load
+document.addEventListener("DOMContentLoaded", function() {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in, redirect to home.html
+      window.location = 'home.html';
+    } else {
+      // No user is signed in, stay on index.html for login or registration
+      // Optionally, you can add logic here if you need to show or hide elements based on login status
+    }
+  });
+});
 
 
 // document.getElementById("loginForm").addEventListener("submit", function(e) {

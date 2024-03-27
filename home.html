@@ -8,7 +8,7 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="content.css">
-
+	<script src="js/home.js" defer></script>
 	<title>Sellify-Home</title>
 </head>
 <body>
@@ -17,7 +17,7 @@
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
-			<img src="img/logoo.png" alt="" style="width: 50px; height: 50px;">
+			<img src="img/logoo.png" alt="" style="width: 40px; height: 40px; margin-inline-end: 10px; margin-inline-start: 10px;">
 			<span class="text">Sellify</span>
 		</a>
 		<ul class="side-menu top">
@@ -34,7 +34,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="sell.html">
 					<i class='bx bxs-doughnut-chart' ></i>
 					<span class="text">Sell</span>
 				</a>
@@ -99,10 +99,10 @@
 		<nav>
 			<i class='bx bx-menu' ></i>
 			<!-- <a href="#" class="nav-link">Categories</a> -->
-			<form action="#">
+			<form id="searchForm">
 				<div class="form-input">
-					<input type="search" placeholder="Search...">
-					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+					<input type="search" id="searchInput" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
 				</div>
 			</form>
 			<input type="checkbox" id="switch-mode" hidden>
@@ -136,7 +136,14 @@
 					</ul>
 				</div>
 			</div>
-           
+				<div style="display: flex;">
+					<img src="img/unaa.png" style="width: 60%; height: 30%; border-radius: 10px; margin-inline-end: 10px;" alt="Full Width Image">
+					<div style="display: flex; flex-direction: column;">
+						<img src="img/pangalawaa.png" style="width: 100%; height: 38%; border-radius: 10px;" alt="Full Width Image">
+						<img src="img/pangatloo.png" style="width: 100%; height: 39%; border-radius: 10px;" alt="Full Width Image">
+					</div>
+				</div>
+				
 				<div id="itemsContainer">
                     
 				</div>
@@ -229,129 +236,7 @@ switchMode.addEventListener('change', function () {
 <!-- Add Firebase products that you want to use -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
-<script>
-  // Initialize Firebase
-  var firebaseConfig = {
-    apiKey: "AIzaSyDCELekaelvtROWv6lL_JaJwJ6LOwSGgUs",
-    authDomain: "sellify-493fa.firebaseapp.com",
-    databaseURL: "https://sellify-493fa-default-rtdb.firebaseio.com",
-    projectId: "sellify-493fa",
-    storageBucket: "sellify-493fa.appspot.com",
-    messagingSenderId: "479130711275",
-    appId: "1:479130711275:web:009adba18cee85b296faae"
-  };
-  firebase.initializeApp(firebaseConfig);
 
-  // Reference to items in the database
-  var itemsRef = firebase.database().ref('Items');
-
-  // Reference to the items container
-  var itemsContainer = document.getElementById('itemsContainer');
-
-  // Fetch and display items
-  itemsRef.on('value', function(snapshot) {
-    itemsContainer.innerHTML = ''; // Clear previous items
-
-    snapshot.forEach(function(childSnapshot) {
-      var item = childSnapshot.val();
-      var itemHtml = `
-        <div class="item" style="border: 1px solid #ccc; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); border-radius: 5px;">
-          <div class="mainImg" style="text-align: center; margin: 0 auto; width: 100%;">
-            <img src='${item.dataImage}'>
-            <span class="text">
-              <p>${item.category}</p>
-              <p>${item.dataTitle}</p>
-              <h3>${item.dataLang}</h3>
-              <div class="left" style="float: left;">
-                <div class="circle-pic" style="display: inline-block; height: 50px; width: 50px;">
-                  <img src="${item.profile}" alt="">
-                </div>
-                <p style="display: inline-block; vertical-align: top;">${item.username}</p>
-              </div>
-            </span>
-          </div>
-        </div>
-      `;
-      itemsContainer.innerHTML += itemHtml;
-    });
-  });
-
-  function logoutUser() {
-    firebase.auth().signOut().then(() => {
-      // Sign-out successful.
-      //alert("User logged out successfully!");
-      window.location = 'index.html'; // Redirect to login page after logout
-    }).catch((error) => {
-      // An error happened.
-      console.error("Logout Error:", error);
-      alert("Error logging out!");
-    });
-  }
-
-
-
-//   firebase.auth().onAuthStateChanged(function(user) {
-//   if (user) {
-//     // User is signed in, get the user ID
-//     var uid = user.uid;
-    
-//     // Reference to the user's profile in the database
-//     var userProfileRef = firebase.database().ref('users/' + uid);
-
-//     // Get the profileImg from the database
-//     userProfileRef.once('value').then(function(snapshot) {
-//       var profileImgUrl = snapshot.val().profileImg; // Gamitin ang tamang field na naglalaman ng URL ng profile image
-      
-//       // I-set ang src attribute ng image sa profileImgUrl
-//       if (profileImgUrl) { // Siguraduhing may laman ang profileImgUrl bago ito i-set
-//         document.getElementById('userProfileImage').src = profileImgUrl;
-//       }
-//     }).catch(function(error) {
-//       console.log("Error fetching user data:", error);
-//     });
-//   } else {
-//     // No user is signed in.
-//     console.log("No user is signed in.");
-//   }
-// });
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in, get the user ID
-    var uid = user.uid;
-    
-    // Reference to the user's profile in the database
-    var userProfileRef = firebase.database().ref('users/' + uid);
-
-    // Get the profile data from the database
-    userProfileRef.once('value').then(function(snapshot) {
-      var profileData = snapshot.val(); // Makuha ang lahat ng data ng profile
-      
-      // Get the profile image URL
-      var profileImgUrl = profileData.profileImg;
-
-      // Get the username
-      var username = profileData.username;
-
-      // Set the profile image src attribute
-      if (profileImgUrl) { 
-        document.getElementById('userProfileImage').src = profileImgUrl;
-      }
-
-      // Set the username inside the div
-      if (username) {
-        document.getElementById('usernameParagraph').innerText = username;
-      }
-    }).catch(function(error) {
-      console.log("Error fetching user data:", error);
-    });
-  } else {
-    // No user is signed in.
-    console.log("No user is signed in.");
-  }
-});
-
-
-</script>
 
 </body>
 </html>
