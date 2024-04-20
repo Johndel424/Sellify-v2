@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- Boxicons -->
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <!-- My CSS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="content.css">
+        <link rel="icon" type="image/png" href="img/logoo.png">
+        <script src="js/chatlist.js" defer></script>
+        <title>Sellify-Messages</title>
+    </head>
+<body>
+    
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<img src="img/logoo.png" alt="" style="width: 40px; height: 40px; margin-inline-end: 10px; margin-inline-start: 10px;">
+			<span class="text">Sellify</span>
+		</a>
+		<ul class="side-menu top">
+			<li>
+				<a href="home.html">
+					<img src="img/home (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Home</span>
+				</a>
+			</li>
+			<li>
+				<a href="categories.html">
+					<img src="img/categories (2).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Categories</span>
+				</a>
+			</li>
+			<li>
+				<a href="sell.html">
+					<img src="img/plus (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Sell</span>
+				</a>
+			</li>
+			<li class="active">
+				<a href="chatlist.html">
+					<img src="img/chat.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Message</span>
+				</a>
+			</li>
+			<li>
+                <a href="user.html" >
+                    <img src="img/me1.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                    <span class="text">Me</span>
+                </a>
+            </li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+                <a href="img/Sellify.apk" download>
+                    <img src="img/downloads.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                    <span class="text">Mobile App</span>
+                </a>
+            </li>
+			<li>
+				<a onclick="checkChangesBeforeLogout()" class="logout">
+					<img src="img/logout (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Logout</span>
+				</a>
+			</li>
+			
+			<script>
+				function checkChangesBeforeLogout() {
+					Swal.fire({
+						title: "Do you want to logout?",
+						showDenyButton: true,
+						showCancelButton: true,
+						confirmButtonText: "Yes",
+						denyButtonText: "No"
+					}).then((result) => {
+						if (result.isConfirmed) {
+							// If changes are saved, proceed to logout
+							Swal.fire("Saved!", "", "success").then(() => {
+								logoutUser();
+							});
+						} else if (result.isDenied) {
+							// If changes are not saved, inform the user and do not logout
+							Swal.fire("Logout are not successful", "", "info");
+						}
+					});
+				}
+			</script>
+			
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<!-- <a href="#" class="nav-link">Categories</a> -->
+			<form id="searchForm">
+				<div class="form-input">
+					<input type="search" id="searchInput" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+                <p id="usernameParagraph" style="font-family: Arial; font-size: 8px;">Name here</p>
+            </a>
+            <style>
+                @media only screen and (max-width: 600px) {
+                    #usernameParagraph {
+                        display: none;
+                    }
+                }
+            </style>
+			<a href="#" class="profile">
+				<img src="img/people.png" id="userProfileImage">
+			</a>
+		</nav>
+        <script>
+        
+
+        </script>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Chat</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Sellify</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+				
+                <div class="container">
+                    <div id="profileImagesContainer">
+                        <!-- I-dagdag ang laman ng profileImagesContainer dito -->
+                        
+                    </div>
+                    <div id="chatRoomsList">
+                        <!-- I-dagdag ang laman ng chatRoomsList dito -->
+                    </div>
+                 
+                </div>        
+			<!-- </div> -->
+		
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+   
+    <style>
+        
+        /* CSS */
+        .listItem {
+    display: flex;
+    margin-left: 40px;
+    font-family: "Arimo", sans-serif;
+    font-size: 15px;
+    margin-top: 25px;
+    cursor: pointer;
+    padding-bottom: 13px;
+    padding-left: 15px;
+    align-items: center; /* Align vertically */
+    border-bottom: 1px solid black; /* Magdagdag ng border sa ibaba */
+    transition: background-color 0.3s; /* Transition effect para sa background-color */
+}
+
+
+.profileImagesContainer {
+    margin-right: 10px;
+    position: absolute;
+    float: left;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: -55px;
+    border-bottom: 1px solid black;
+}
+
+.profileImagesContainer img {
+    border-radius: 50%;
+}
+
+    </style>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <link rel="stylesheet" href="content.css">
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<!-- Boxicons -->
+    <script src="js/sell.js" defer></script>
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="icon" type="image/png" href="img/logoo.png">
+	<title>Sellify-Sell</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<img src="img/logoo.png" alt="" style="width: 40px; height: 40px; margin-inline-end: 10px; margin-inline-start: 10px;">
+			<span class="text">Sellify</span>
+		</a>
+		<ul class="side-menu top">
+			<li>
+				<a href="home.html">
+					<img src="img/home (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Home</span>
+				</a>
+			</li>
+			<li>
+				<a href="categories.html">
+					<img src="img/categories (2).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Categories</span>
+				</a>
+			</li>
+			<li class="active">
+				<a href="sell.html">
+					<img src="img/plus.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Sell</span>
+				</a>
+			</li>
+			<li>
+				<a href="chatlist.html">
+					<img src="img/chat (1) (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Message</span>
+				</a>
+			</li>
+			<li>
+                <a href="user.html" >
+                    <img src="img/me1.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                    <span class="text">Me</span>
+                </a>
+            </li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+                <a href="img/Sellify.apk" download>
+                    <img src="img/downloads.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                    <span class="text">Mobile App</span>
+                </a>
+            </li>
+			<li>
+				<a onclick="checkChangesBeforeLogout()" class="logout">
+					<img src="img/logout (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Logout</span>
+				</a>
+			</li>
+			
+			<script>
+				function checkChangesBeforeLogout() {
+					Swal.fire({
+						title: "Do you want to logout?",
+						showDenyButton: true,
+						showCancelButton: true,
+						confirmButtonText: "Yes",
+						denyButtonText: "No"
+					}).then((result) => {
+						if (result.isConfirmed) {
+							// If changes are saved, proceed to logout
+							Swal.fire("Saved!", "", "success").then(() => {
+								logoutUser();
+							});
+						} else if (result.isDenied) {
+							// If changes are not saved, inform the user and do not logout
+							Swal.fire("Logout are not successful", "", "info");
+						}
+					});
+				}
+			</script>
+			
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<!-- <a href="#" class="nav-link">Categories</a> -->
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+                <p id="usernameParagraph" style="font-family: Arial; font-size: 8px;">Name here</p>
+            </a>
+            <style>
+                @media only screen and (max-width: 600px) {
+                    #usernameParagraph {
+                        display: none;
+                    }
+                }
+            </style>
+			<a href="#" class="profile">
+				<img src="img/people.png" id="userProfileImage">
+			</a>
+		</nav>
+        <script>
+        
+
+        </script>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Sell</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Sellify</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+           
+				<div id="itemsContainer">
+                    <div class="container">
+                        <!-- <header>Registration</header> -->
+                        <form id="registerForm">
+                            <div class="form first">
+                                <div class="details personal">
+                                    <span class="title">Product Details</span>
+                                    <div>
+                                        <label for="profilePic">
+                                            <div class="circle">
+                                                <img id="profilePicPreview" src="img/upload.png"  style="width: 100px; height: 100px;" onclick="document.getElementById('dataImage').click();">
+                                            </div>
+                                            <input type="file" id="dataImage" name="dataImage" accept="image/*" required onchange="previewImage();" style="display: none;">
+                                        </label>
+                                        <script>
+                                            function previewImage() {
+                                                var reader = new FileReader();
+                                                reader.onload = function(e) {
+                                                    document.getElementById('profilePicPreview').src = e.target.result;
+                                                }
+                                                reader.readAsDataURL(document.getElementById('dataImage').files[0]);
+                                                }
+                                        </script>
+                                    </div>
+                                    <div class="fields">
+                                        <div class="input-field">
+                                            <label>Product Name</label>
+                                            <input type="text" id="dataTitle" name="dataTitle" placeholder="Enter Product Name" required>
+                                        </div>
+                                        <div class="input-field">
+                                            <label>Product Description</label>
+                                            <input type="text" id="dataDesc" name="dataDesc" placeholder="Enter Product Description" required>
+                                        </div>
+                                        <div class="input-field">
+                                            <label>Product Price</label>
+                                            <input type="number" id="dataLang" placeholder="Enter Product Price" name="dataLang" required>
+                                        </div>
+                                        <div class="input-field">
+                                            <label>Category</label>
+                                            <select id="category" name="category" required>
+                                                <option disabled selected>Select Category</option>
+                                                <option value="Women Fashion">Women Fashion</option>
+                                                <option value="Men Fashion">Men Fashion</option>
+                                                <option value="Baby and Kids">Baby and Kids</option>
+                                                <option value="Sports and Kids">Sports and Kids</option>
+                                                <option value="Beauty and health care">Beauty and health care</option>
+                                                <option value="Home Appliances">Home Appliances</option>
+                                                <option value="Furniture and Home Decor">Furniture and Home Decor</option>
+                                                <option value="Cars">Cars</option>
+                                                <option value="Gadgets">Gadgets</option>
+                                                <option value="Pet Supplies">Pet Supplies</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-field" id="subCategorySelect">
+                                            <label>Sub Category</label>
+                                            <select id="subCategory" name="subCategory" required>
+                                                <option disabled selected>Select Sub Category</option>
+                                            </select>
+                                        </div>
+
+                                        
+                                    </div>
+                                </div>
+                               
+                                    <!-- <button class="nextBtn">
+                                        <span class="btnText">Post</span>
+                                        <i class="uil uil-navigator"></i>
+                                    </button> -->
+                                    <input type="submit" class="btn" value="sell" style="background-color: blue; color: white;  padding: 15px; border-radius: 10px; border: none; font-family: Arial; text-transform: uppercase;">
+                                </div> 
+                            </div>
+
+                            </div>
+                        </form>
+                    </div>
+				</div>
+				
+			<!-- </div> -->
+		
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+
+</body>
+</html>

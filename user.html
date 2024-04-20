@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="content.css">
+	<link rel="icon" type="image/png" href="img/logoo.png">
+	<script src="js/user.js" defer></script>
+	<title>Sellify-User</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<img src="img/logoo.png" alt="" style="width: 40px; height: 40px; margin-inline-end: 10px; margin-inline-start: 10px;">
+			<span class="text">Sellify</span>
+		</a>
+		<ul class="side-menu top">
+			<li>
+				<a href="home.html">
+					<img src="img/home (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Home</span>
+				</a>
+			</li>
+			<li>
+				<a href="categories.html">
+					<img src="img/categories (2).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Categories</span>
+				</a>
+			</li>
+			<li>
+				<a href="sell.html">
+					<img src="img/plus (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Sell</span>
+				</a>
+			</li>
+			<li>
+				<a href="chatlist.html">
+					<img src="img/chat (1) (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Message</span>
+				</a>
+			</li>
+			<li class="active">
+                <a href="user.html" >
+                    <img src="img/me2.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                    <span class="text">Me</span>
+                </a>
+            </li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+                <a href="img/Sellify.apk" download>
+                    <img src="img/downloads.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                    <span class="text">Mobile App</span>
+                </a>
+            </li>
+			<li>
+				<a onclick="checkChangesBeforeLogout()" class="logout">
+					<img src="img/logout (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Logout</span>
+				</a>
+			</li>
+			
+			<script>
+				function checkChangesBeforeLogout() {
+					Swal.fire({
+						title: "Do you want to logout?",
+						showDenyButton: true,
+						showCancelButton: true,
+						confirmButtonText: "Yes",
+						denyButtonText: "No"
+					}).then((result) => {
+						if (result.isConfirmed) {
+							// If changes are saved, proceed to logout
+							Swal.fire("Saved!", "", "success").then(() => {
+								logoutUser();
+							});
+						} else if (result.isDenied) {
+							// If changes are not saved, inform the user and do not logout
+							Swal.fire("Logout are not successful", "", "info");
+						}
+					});
+				}
+			</script>
+			
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<!-- <a href="#" class="nav-link">Categories</a> -->
+			<form id="searchForm">
+				<div class="form-input">
+					<input type="search" id="searchInput" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+                <p id="usernameParagraph" style="font-family: Arial; font-size: 8px;">Name here</p>
+            </a>
+            <style>
+                @media only screen and (max-width: 600px) {
+                    #usernameParagraph {
+                        display: none;
+                    }
+                }
+            </style>
+			<a href="#" class="profile">
+				<img src="img/people.png" id="userProfileImage">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<!-- <div class="head-title">
+				<div class="left">
+					<h1>User</h1>
+				</div>
+			</div> -->
+				<style>
+
+				.profileImagesContainer {
+					margin-right: 10px;
+					position: absolute;
+					float: left;
+					margin-top: 15px;
+					margin-bottom: 15px;
+					margin-left: -55px;
+				}
+
+				.profileImagesContainer img {
+					width: 150px;
+					height: 150px;
+					border-radius: 50%;
+				}
+				</style>  
+				
+				<!-- <div id="itemsContainer">
+                    
+				</div> -->
+                <style>
+                     .tab {
+            display: none;
+            padding: 10px;
+        }
+        #tabs {
+            overflow: hidden;
+        }
+
+        #tabs button {
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        #tabs button:hover {
+            background-color: #ddd;
+        }
+
+        #tabs button.active {
+            background-color: #ccc;
+        }
+
+        /* Clear floats after the buttons */
+        #tabs:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive design for tabs */
+		@media screen and (max-width: 600px) {
+    #tabs {
+        display: flex;
+        flex-wrap: wrap; /* Allow buttons to wrap onto multiple lines if needed */
+    }
+
+    #tabs button {
+        flex: 1; /* Each button takes equal space */
+        width: auto; /* Allow buttons to adjust their width based on content */
+        margin: 5px; /* Adjust margin between buttons */
+    }
+}
+
+                </style>
+            <style>
+                /* CSS for making the image circular */
+                .circle-img {
+                  border-radius: 50%;
+				  position: absolute;
+                  overflow: hidden;
+				  float: left;
+                  border: 3px solid #346ebd; /* Added border */
+                }
+              
+                /* CSS for the container div */
+                .container-div {
+                  vertical-align: top; /* Align to the top of the image */
+                  background-color: #346ebd;
+                  height: 130px;
+                  margin-left: 50px;
+				  padding-left: 120px;
+				  padding-top: 30px;
+				  margin-top: 10px;
+				  margin-bottom: 10px;
+                  width: 100%;
+				  border-radius: 10px;
+					width: calc(100% - 0px); /* Adjust width considering image width and margin */
+					overflow: hidden;
+								}
+								.user{
+									position: relative;
+								
+					overflow: hidden; /* Clear float */
+				}
+				.circle-img img{
+					height: 150px;
+					width: 150px;
+				}
+                /* CSS for making the div responsive */
+                @media (max-width: 768px) {
+					
+					.container-div {
+                  vertical-align: top; /* Align to the top of the image */
+                  background-color: #346ebd;
+                  height: 100px;
+                  margin-left: 5px;
+				  padding-left: 1px;
+				  padding-top: 30px;
+				  margin-top: 45px;
+				  margin-bottom: 10px;
+                  width: 100%;
+				  border-radius: 10px;
+					width: calc(100% - 0px); /* Adjust width considering image width and margin */
+					overflow: hidden;
+								}
+								.circle-img {
+									margin-left: 38%;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+}
+
+				  .circle-img img{
+					height: 75px;
+					width: 75px;
+				}
+				.user {
+  position: relative;
+  overflow: hidden; /* Clear float */
+  text-align: center; /* Center the image when on mobile */
+}
+
+                }
+              </style>
+              
+              <div class="user">
+				<div class="circle-img">
+					<img id="profile-img" src="img/avatar.svg" alt="Your Image">
+				</div>
+				<div class="container-div">
+					<h1 id="username" style="color: white;"></h1>
+					<h4 id="emaill" style="color: white;"></h4>
+					<p style="color: white; font-size: 10px;">Account Owner</p>
+					
+					
+				</div>
+			</div>
+			
+			
+			
+            <div id="tabs" style="margin-top: 10px;">
+                <button onclick="openTab('tab1')" class="tablink" id="defaultOpen">All</button>
+                <button onclick="openTab('tab2')" class="tablink">Available</button>
+                <button onclick="openTab('tab3')" class="tablink">Sold</button>
+            </div>
+            
+            <div id="tab1" class="tab" style="display: block;">
+                <div id="itemsContainer">
+                
+                </div>
+            </div>
+            
+            <div id="tab2" class="tab" style="display: block;">
+				<div id="itemsContainer1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); grid-gap: 20px;">
+                
+                </div>
+            </div>
+            
+            <div id="tab3" class="tab">
+				<div id="itemsContainer2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); grid-gap: 20px;">
+                
+                </div>
+            </div>
+            
+            <script>
+                function openTab(tabName) {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("tab");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+                    document.getElementById(tabName).style.display = "block";
+                }
+            
+                // Get the element with id="defaultOpen" and click on it
+                document.getElementById("defaultOpen").click();
+            </script>
+				
+			<!-- </div> -->
+		
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+
+
+</body>
+</html>

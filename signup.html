@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sellify-Registration</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" type="image/png" href="img/logoo.png">
+    <script src="js/signup.js" defer></script>
+</head>
+<body>
+  <!-- <img class="wave" src="img/wave.png"> -->
+  <div class="container">
+    <div class="img">
+        <img src="img/loggif.gif">
+    </div>
+    <div class="login-content">
+        <form id="registerForm">
+        <!-- <img src="img/logoo.png"> -->
+        <h2 class="title">Welcome</h2>
+                <div style="text-align: center;">
+                <label for="profilePic">
+                    <div class="circle">
+                        <img id="profilePicPreview" src="img/avatar.svg" alt="Profile Picture">
+                    </div>
+                    <input type="file" id="profilePic" accept="image/*" onchange="previewImage();" required>
+                    </label>
+                </div>
+               <div class="input-div one">
+                  <div class="i">
+                      <i class="fas fa-user"></i>
+                  </div>
+                  <div class="div">
+                      <input type="text" id="username" class="input" placeholder="Username" required>
+                  </div>
+               </div>
+               <div class="input-div email">
+                  <div class="i"> 
+                     <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="div">
+                     <input type="email" id="email" class="input" placeholder="Email" required>
+                 </div>
+              </div>
+              <div class="input-div pass">
+                <div class="i"> 
+                   <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                   <input type="password" id="password" class="input" placeholder="Password" required>
+               </div>
+            </div>
+              <input type="submit" class="btn" value="signup">
+              <div style="display: inline-block; margin: 0 5px;">
+                <hr style="width: 115PX; display: inline-block; vertical-align: middle;"> OR <hr style="width: 115PX; display: inline-block; vertical-align: middle;">
+              </div>
+              <input type="submit" class="btn" value="login" id="loginBtn" style="color: BLACK; background-color: white; border: 1px solid #346EBD;">
+            </form>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+
+</html>

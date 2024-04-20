@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="content.css">
+	<link rel="icon" type="image/png" href="img/logoo.png">
+	<script src="js/home.js" defer></script>
+	<title>Sellify-Home</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<img src="img/logoo.png" alt="" style="width: 40px; height: 40px; margin-inline-end: 10px; margin-inline-start: 10px;">
+			<span class="text">Sellify</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="home.html">
+					<img src="img/home.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Home</span>
+				</a>
+			</li>
+			<li>
+				<a href="categories.html">
+					<img src="img/categories (2).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Categories</span>
+				</a>
+			</li>
+			<li>
+				<a href="sell.html">
+					<img src="img/plus (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Sell</span>
+				</a>
+			</li>
+			<li>
+				<a href="chatlist.html">
+					<img src="img/chat (1) (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Message</span>
+				</a>
+			</li>
+			<li>
+                <a href="user.html" >
+                    <img src="img/me1.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                    <span class="text">Me</span>
+                </a>
+            </li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+                <a href="img/Sellify.apk" download>
+                    <img src="img/downloads.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                    <span class="text">Mobile App</span>
+                </a>
+            </li>
+			<li>
+				<a onclick="checkChangesBeforeLogout()" class="logout">
+					<img src="img/logout (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+					<span class="text">Logout</span>
+				</a>
+			</li>
+			
+			<script>
+				function checkChangesBeforeLogout() {
+					Swal.fire({
+						title: "Do you want to logout?",
+						showDenyButton: true,
+						showCancelButton: true,
+						confirmButtonText: "Yes",
+						denyButtonText: "No"
+					}).then((result) => {
+						if (result.isConfirmed) {
+							// If changes are saved, proceed to logout
+							Swal.fire("Saved!", "", "success").then(() => {
+								logoutUser();
+							});
+						} else if (result.isDenied) {
+							// If changes are not saved, inform the user and do not logout
+							Swal.fire("Logout are not successful", "", "info");
+						}
+					});
+				}
+			</script>
+			
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<!-- <a href="#" class="nav-link">Categories</a> -->
+			<form id="searchForm">
+				<div class="form-input">
+					<input type="search" id="searchInput" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+                <p id="usernameParagraph" style="font-family: Arial; font-size: 8px;">Name here</p>
+            </a>
+            <style>
+                @media only screen and (max-width: 600px) {
+                    #usernameParagraph {
+                        display: none;
+                    }
+                }
+            </style>
+			<a href="#" class="profile">
+				<img src="img/people.png" id="userProfileImage">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="container">
+				<h1>Chats</h1>
+                <div id="profileImagesContainer">
+                    <!-- I-dagdag ang laman ng profileImagesContainer dito -->
+                    <div id="chatRoomsList">
+						<!-- I-dagdag ang laman ng chatRoomsList dito -->
+					</div>
+                </div>
+                
+             
+            </div>
+			<div class="head-title">
+				<div class="left">
+					<h1>Home</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Sellify</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+            <script>
+               var toggleButton = document.getElementById('toggleButton');
+				var container = document.querySelector('.container');
+
+				toggleButton.addEventListener('click', function() {
+					var computedStyle = window.getComputedStyle(container);
+					// Kung ang computed display style ng container ay "none", gawing "block" ito
+					// Kung hindi, gawing "none" ito
+					if (computedStyle.display === "none") {
+						container.style.display = "block";
+					} else {
+						container.style.display = "none";
+					}
+				});
+
+							</script>
+				<style>
+				.container {
+						display: none;
+						width: auto;
+						height: 300px;
+						overflow-y: auto;
+						overflow-x: hidden;
+						background-color: #ffffff;
+						border: 1px solid #ccc;
+						padding: 10px;
+						position: absolute;
+						z-index: 999;
+					}
+
+					.container::-webkit-scrollbar {
+						width: 5px; /* Lapad ng scrollbar */
+					}
+
+					.container::-webkit-scrollbar-track {
+						background: #f1f1f1; /* Kulay ng track (ang bahagi na hindi kinikilik) */
+					}
+
+					.container::-webkit-scrollbar-thumb {
+						background: #888; /* Kulay ng thumb (ang bahagi na ginagalaw) */
+					}
+
+					.container::-webkit-scrollbar-thumb:hover {
+						background: #555; /* Kulay ng thumb kapag na-hover */
+					}
+
+
+					.listItem {
+					display: flex;
+					margin-left: 60px;
+					font-size: 25px;
+					margin-top: 25px;
+					background-color: aquamarine;
+					margin-bottom: 25px;
+					align-items: center; /* Align vertically */
+				}
+
+				.profileImagesContainer {
+					margin-right: 10px;
+					position: absolute;
+					float: left;
+					margin-top: 15px;
+					margin-bottom: 15px;
+					margin-left: -55px;
+				}
+
+				.profileImagesContainer img {
+					width: 150px;
+					height: 150px;
+					border-radius: 50%;
+				}
+				</style>     
+				<div style="display: flex;">
+					<img src="img/unaa.png" style="width: 60%; height: 30%; border-radius: 10px; margin-inline-end: 10px;" alt="Full Width Image">
+					<div style="display: flex; flex-direction: column;">
+						<img src="img/pangalawaa.png" style="width: 100%; height: 38%; border-radius: 10px;" alt="Full Width Image">
+						<img src="img/pangatloo.png" style="width: 100%; height: 39%; border-radius: 10px;" alt="Full Width Image">
+					</div>
+				</div>
+				
+				<div id="itemsContainer">
+                    
+				</div>
+				
+			<!-- </div> -->
+		
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+
+
+</body>
+</html>

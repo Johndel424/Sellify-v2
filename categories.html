@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="content.css">
+    <script src="js/categories.js" defer></script>
+    <link rel="icon" type="image/png" href="img/logoo.png">
+    <title>Sellify-Categories</title>
+</head>
+<body>
+
+
+<!-- SIDEBAR -->
+<section id="sidebar">
+    <a href="#" class="brand">
+        <img src="img/logoo.png" alt="" style="width: 50px; height: 50px;">
+        <span class="text">Sellify</span>
+    </a>
+    <ul class="side-menu top">
+        <li>
+            <a href="home.html">
+                <img src="img/home (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                <span class="text">Home</span>
+            </a>
+        </li>
+        <li class="active">
+            <a href="categories.html">
+                <img src="img/categories.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                <span class="text">Categories</span>
+            </a>
+        </li>
+        <li>
+            <a href="sell.html">
+                <img src="img/plus (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                <span class="text">Sell</span>
+            </a>
+        </li>
+        <li>
+            <a href="chatlist.html">
+                <img src="img/chat (1) (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                <span class="text">Message</span>
+            </a>
+        </li>
+        <a href="user.html" >
+            <img src="img/me1.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+            <span class="text">Me</span>
+        </a>
+    </li>
+    </ul>
+    <ul class="side-menu">
+        <li>
+            <a href="img/Sellify.apk" download>
+                <img src="img/downloads.png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                <span class="text">Mobile App</span>
+            </a>
+        </li>
+        <li>
+        <li>
+            <a onclick="checkChangesBeforeLogout()" class="logout">
+                <img src="img/logout (1).png" alt="Home" style="width: 18px; height: 18px; margin-left: 15px; margin-right: 10px;">
+                <span class="text">Logout</span>
+            </a>
+        </li>
+
+        <script>
+            function checkChangesBeforeLogout() {
+                Swal.fire({
+                    title: "Do you want to logout?",
+                    showDenyButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: "Yes",
+                    denyButtonText: "No"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // If changes are saved, proceed to logout
+                        Swal.fire("Saved!", "", "success").then(() => {
+                            logoutUser();
+                        });
+                    } else if (result.isDenied) {
+                        // If changes are not saved, inform the user and do not logout
+                        Swal.fire("Logout are not successful", "", "info");
+                    }
+                });
+            }
+        </script>
+
+    </ul>
+</section>
+<!-- SIDEBAR -->
+
+
+<!-- CONTENT -->
+<section id="content">
+    <!-- NAVBAR -->
+    <nav>
+        <i class='bx bx-menu' ></i>
+        <form action="#">
+            <div class="form-input">
+                <input type="search" placeholder="Search...">
+                <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+            </div>
+        </form>
+        <input type="checkbox" id="switch-mode" hidden>
+        <label for="switch-mode" class="switch-mode"></label>
+        <a href="#" class="notification">
+            <p id="usernameParagraph" style="font-family: Arial; font-size: 8px;">Name here</p>
+        </a>
+        <style>
+            @media only screen and (max-width: 600px) {
+                #usernameParagraph {
+                    display: none;
+                }
+            }
+        </style>
+        <a href="#" class="profile">
+            <img src="img/people.png" id="userProfileImage">
+        </a>
+    </nav>
+    <script>
+
+
+    </script>
+    <!-- NAVBAR -->
+
+    <!-- MAIN -->
+    <main>
+        <div class="head-title">
+            <div class="left">
+                <h1>Categories</h1>
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">Sellify</a>
+                    </li>
+                    <!-- <li><i class='bx bx-chevron-right' ></i></li>
+                    <li>
+                        <a class="active" href="#">Categories</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap;">
+            <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;" onclick="filterItems('Women Fashion')">
+                <img src="img/women.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;"> Women Fashion
+            </button>
+            <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Men Fashion')">
+                <img src="img/men.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Men Fashion</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Baby and Kids')">
+                    <img src="img/baby.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Baby and Kids</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Sports and Recreation')">
+                    <img src="img/sport.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Sports and Recreation</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Beauty and health car')">
+                    <img src="img/shampoo.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Beauty and health car</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Home Appliances')">
+                    <img src="img/electricappliance.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Home Appliances</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Furniture and Home Decor')">
+                    <img src="img/furniturestore.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Furniture and Home Decor</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Cars')">
+                    <img src="img/car.jpg" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Cars</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Gadgets')">
+                    <img src="img/gadgets.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Gadgets</button>
+                <button style="background-color: white; padding: 5px 10px; margin: 5px; font-size:  16px; border: none; border-radius: 5px; display: flex; align-items: center;"  onclick="filterItems('Pet Supplies')">
+                    <img src="img/petsupplies.png" alt="Women Fashion Icon" style="width: 30px; height: auto; margin-right: 5px;">
+                Pet Supplies</button>
+        </div>
+
+        <div id="itemsContainer">
+
+        </div>
+
+    </main>
+    <!-- MAIN -->
+</section>
+<!-- CONTENT -->
+
+<script>
+    const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+
+    allSideMenu.forEach(item=> {
+        const li = item.parentElement;
+
+        item.addEventListener('click', function () {
+            allSideMenu.forEach(i=> {
+                i.parentElement.classList.remove('active');
+            })
+            li.classList.add('active');
+        })
+    });
+
+
+
+
+    // TOGGLE SIDEBAR
+    const menuBar = document.querySelector('#content nav .bx.bx-menu');
+    const sidebar = document.getElementById('sidebar');
+
+    menuBar.addEventListener('click', function () {
+        sidebar.classList.toggle('hide');
+    })
+
+
+
+    const searchButton = document.querySelector('#content nav form .form-input button');
+    const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
+    const searchForm = document.querySelector('#content nav form');
+
+    searchButton.addEventListener('click', function (e) {
+        if(window.innerWidth < 576) {
+            e.preventDefault();
+            searchForm.classList.toggle('show');
+            if(searchForm.classList.contains('show')) {
+                searchButtonIcon.classList.replace('bx-search', 'bx-x');
+            } else {
+                searchButtonIcon.classList.replace('bx-x', 'bx-search');
+            }
+        }
+    })
+
+
+
+
+
+    if(window.innerWidth < 768) {
+        sidebar.classList.add('hide');
+    } else if(window.innerWidth > 576) {
+        searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        searchForm.classList.remove('show');
+    }
+
+
+    window.addEventListener('resize', function () {
+        if(this.innerWidth > 576) {
+            searchButtonIcon.classList.replace('bx-x', 'bx-search');
+            searchForm.classList.remove('show');
+        }
+    })
+
+
+
+    const switchMode = document.getElementById('switch-mode');
+
+    switchMode.addEventListener('change', function () {
+        if(this.checked) {
+            document.body.classList.add('dark');
+        } else {
+            document.body.classList.remove('dark');
+        }
+    })
+
+	function filterItems(category) {
+        const itemsContainer = document.getElementById('itemsContainer');
+        const itemsRef = firebase.database().ref('Items');
+        let foundItems = false; // Flag to track if any items are found
+
+        itemsRef.on('value', function(snapshot) {
+            itemsContainer.innerHTML = ''; // Clear previous items
+
+            snapshot.forEach(function(childSnapshot) {
+                var item = childSnapshot.val();
+                if (item.category === category) { // Filter items by category
+                    var itemHtml = `
+                        <div class="item" style="border: 1px solid #ccc; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); border-radius: 5px;">
+                            <div class="mainImg" style="text-align: center; margin: 0 auto; width: 100%;">
+                                <img src='${item.dataImage}'>
+                                <span class="text">
+                                    <p>${item.category}</p>
+                                    <p>${item.dataTitle}</p>
+                                    <h3>${item.dataLang}</h3>
+                                    <div class="left" style="float: left;">
+                                        <div class="circle-pic" style="display: inline-block; height: 50px; width: 50px;">
+                                            <img src="${item.profile}" alt="">
+                                        </div>
+                                        <p style="display: inline-block; vertical-align: top;">${item.username}</p>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    `;
+                    itemsContainer.innerHTML += itemHtml;
+                    foundItems = true; // Set flag to true if item is found
+                }
+            });
+
+             // If no items found, display message with image
+			 if (!foundItems) {
+                const noItemsHtml = `
+                    <div class="no-items" style="text-align: center;">
+                        <img src="img/noitem.png" alt="No items found" style="height: 200px; width: 200px;">
+                        <p>No items found for category: ${category}</p>
+                    </div>
+                `;
+                itemsContainer.innerHTML = noItemsHtml;
+            }
+        });
+    }
+</script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+
+
+</body>
+</html>
