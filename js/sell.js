@@ -87,7 +87,8 @@ var firebaseConfig = {
         // Populate options based on selected category
         if (category === "Women Fashion") {
             // Add options for Category 1
-            var options = ["Sub-Category 1.1", "Sub-Category 1.2", "Sub-Category 1.3"];
+            var options = ["Clothing", "Accessories", "Bags", "Shoes"];
+            
             options.forEach(function(option) {
                 var optionElement = document.createElement("option");
                 optionElement.value = option;
@@ -96,7 +97,7 @@ var firebaseConfig = {
             });
         } else if (category === "Men Fashion") {
             // Add options for Category 2
-            var options = ["Sub-Category 2.1", "Sub-Category 2.2", "Sub-Category 2.3"];
+            var options = ["Clothing", "Accessories", "Bags", "Shoes"];
             options.forEach(function(option) {
                 var optionElement = document.createElement("option");
                 optionElement.value = option;
@@ -105,7 +106,87 @@ var firebaseConfig = {
             });
         } else if (category === "Baby and Kids") {
             // Add options for Category 3
-            var options = ["Sub-Category 3.1", "Sub-Category 3.2", "Sub-Category 3.3"];
+            var options = ["Girl Clothing", "Boy Clothing", "Accessories"];
+            options.forEach(function(option) {
+                var optionElement = document.createElement("option");
+                optionElement.value = option;
+                optionElement.textContent = option;
+                subCategoryDropdown.appendChild(optionElement);
+            });
+        }
+     else if (category === "Baby and Kids") {
+        // Add options for Category 3
+        var options = ["Girl Clothing", "Boy Clothing", "Accessories"];
+        options.forEach(function(option) {
+            var optionElement = document.createElement("option");
+            optionElement.value = option;
+            optionElement.textContent = option;
+            subCategoryDropdown.appendChild(optionElement);
+        });
+    }
+        else if (category === "Sports and Kids") {
+            // Add options for Category 3
+            var options = ["Sports Equipment", "Workout Equipment", "Other sports and recreation related"];
+            options.forEach(function(option) {
+                var optionElement = document.createElement("option");
+                optionElement.value = option;
+                optionElement.textContent = option;
+                subCategoryDropdown.appendChild(optionElement);
+            });
+        }
+        else if (category === "Beauty and health care") {
+            // Add options for Category 3
+            var options = ["Face", "Bath and Body Care", "Other Beauty and Health related"];
+            options.forEach(function(option) {
+                var optionElement = document.createElement("option");
+                optionElement.value = option;
+                optionElement.textContent = option;
+                subCategoryDropdown.appendChild(optionElement);
+            });
+        }
+        else if (category === "Home Appliances") {
+            // Add options for Category 3
+            var options = ["TV and Entertainment", "Kitchen Appliances", "Other Appliances"];
+            options.forEach(function(option) {
+                var optionElement = document.createElement("option");
+                optionElement.value = option;
+                optionElement.textContent = option;
+                subCategoryDropdown.appendChild(optionElement);
+            });
+        }
+        else if (category === "Furniture and Home Decor") {
+            // Add options for Category 3
+            var options = ["Indoor Furniture", "Outdoor Furniture", "Other Furniture and home decor related"];
+            options.forEach(function(option) {
+                var optionElement = document.createElement("option");
+                optionElement.value = option;
+                optionElement.textContent = option;
+                subCategoryDropdown.appendChild(optionElement);
+            });
+        }
+        else if (category === "Cars") {
+            // Add options for Category 3
+            var options = ["All Cars for sale", "New Cars", "Used Cars"];
+            options.forEach(function(option) {
+                var optionElement = document.createElement("option");
+                optionElement.value = option;
+                optionElement.textContent = option;
+                subCategoryDropdown.appendChild(optionElement);
+            });
+        }
+        else if (category === "Gadgets") {
+            // Add options for Category 3
+            var options = ["Mobile Phones", "Tablets", "Laptop"];
+            options.forEach(function(option) {
+                var optionElement = document.createElement("option");
+                optionElement.value = option;
+                optionElement.textContent = option;
+                subCategoryDropdown.appendChild(optionElement);
+            });
+        }
+        else if (category === "Pet Supplies") {
+            // Add options for Category 3
+            var options = ["Pet Food", "Home and Accessoies for pet", "Other Pet Supplies"];
             options.forEach(function(option) {
                 var optionElement = document.createElement("option");
                 optionElement.value = option;

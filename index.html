@@ -25,7 +25,9 @@
     <div class="login-content">
         <form id="loginForm" onsubmit="loginUser(event)">
         <img src="img/logoo.png">
-        <h2 class="title">Welcome</h2>
+        <h2 class="title">Welcome</h2> <div id="LoginScreen">
+            <!-- <button id="login">Login with Google</button> -->
+          </div>
                 <div class="input-div one">
                     <div class="i">
                         <i class="fas fa-envelope"></i>
@@ -47,7 +49,9 @@
                 <div style="display: inline-block; margin: 0 5px;">
                 <hr style="width: 115PX; display: inline-block; vertical-align: middle;"> OR <hr style="width: 115PX; display: inline-block; vertical-align: middle;">
                 </div>
+                <input type="submit" style="color: BLACK; background-color: white; border: 1px solid #346EBD;" class="btn" value="Login with Google" id="login" onclick="GoogleLogin()">
                 <input type="submit" class="btn" value="SIGNUP" style="color: BLACK; background-color: white; border: 1px solid #346EBD;" onclick="window.location.href = 'signup.html';">
+                
             </form>
         </div>
     </div>

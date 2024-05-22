@@ -26,36 +26,30 @@
         if (item) {
             // Construct HTML to display item details
             const itemHtml = `
-                <div class="item" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start;">
-                    <div class="left-column" style="flex: 1; min-width: 100%; max-width: 100%; margin: 0 auto;">
-                        <img src='${item.dataImage}' alt="" style="width: 200px; height: 200px;">
-                    </div>
-                    <div class="right-column" style="flex: 1; min-width: 100%; padding: 20px; margin: 0 auto;">
-                        <p style="font-family: Arial, sans-serif; font-size: 30px; font-weight: bold; text-transform: uppercase; text-align: center;">${item.dataTitle}</p>
-                        <p class="desc" style="text-align: center; font-family: Arial, sans-serif; font-size: 16px;">${item.dataDesc}</p>
-                        <p style="text-align: center;">${item.category}</p>
-                        <p style="text-align: center;">${item.status}</p>
-                        <h3 style="text-align: center;">${item.dataLang}</h3>
-                        <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
-                            <div class="circle-pic" style="margin-right: 10px;">
-                                <img src="${item.profile}" alt="" style="border-radius: 50%; width: 30px; height: 30px;">
-                            </div>
-                            <p>${item.username}</p>
-                        </div>
-                        <!-- Buttons Section -->
-                        <div class="distance-container" id="distanceContainer"></div>
-                        <div class="buttons" style="text-align: center; margin-top: 10px;">
-                            <button id="publishButton" style="padding: 10px 20px; margin-right: 5px; background-color: #a8a6b6; color: white; border: none; border-radius: 5px; cursor: pointer;">Chat</button>
-                            <button id="offerButton" style="padding: 10px 20px; margin-right: 5px; background-color: #346ebd; color: white; border: none; border-radius: 5px; cursor: pointer;">Make Offer</button>
-                        </div>
-                        <p style="display: none;">${item.subCategory}</p>
-                        <p style="display: none;">${item.uid}</p>
-                        <p style="display: none;">${item.latitude}</p>
-                        <p style="display: none;">${item.longitude}</p>
+               
+                <div class="card" style="margin: 0 auto;">
+                <img src='${item.dataImage}' alt="Vans old Skool">
+                <div class="card-content">
+                    <div class="card-title">${item.dataTitle}</div>
+                    <div class="price">₱<span id="price">${item.dataLang}</div>
+                    <div class="description">
+                        <p id="distanceContainer"></p>
+                        <p>${item.dataDesc}</p>
+                        <p>Category: ${item.category} &gt; ${item.subCategory}</p>
                     </div>
                 </div>
+                <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+            <div class="circle-pic" style="margin-right: 10px;">
+                <img src="${item.profile}" alt="" style="border-radius: 50%; width: 30px; height: 30px;">
+            </div>
+            <p>${item.username}</p>
+        </div>
+                <div class="buttons">
+                    <a id="publishButton" class="button chat">Chat</a>
+                    <a id="offerButton" class="button make-offer">Make offer</a>
+                </div>
+            </div>
             `;
-    
             getLocationAndComputeDistance(item.latitude, item.longitude);
             // Inject the HTML into the page
             document.getElementById('itemDetails').innerHTML = itemHtml;
@@ -278,7 +272,7 @@
         var roundedDistance = Math.round(distance * 100) / 100;
     
         // Display the rounded distance in the distanceContainer div
-        document.getElementById('distanceContainer').innerHTML = "Ang distansya ay " + roundedDistance + " kilometers.";
+        document.getElementById('distanceContainer').innerHTML = "Distance to location: " + roundedDistance + " away.";
     }
     
     

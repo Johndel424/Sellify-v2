@@ -140,21 +140,21 @@
 				</div>
 			</div> -->
 
-        <section class="msger" style="display: flex; justify-content: center; align-items: center; height: calc(100% - 200px); width: 100%;">
-            <main class="msger-chat" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; width: 100%;">
-                    <header class="msger-header">
-                        <div class="msger-header-title" id="headerContainer">
-                    </header>
-               
-                    <div id="chatArea" style="overflow-y: auto; flex-grow: 1; width: 100%; min-height: 380px;">
-                        <!-- Chat messages will be displayed here -->
-                    </div>
-                    <form class="msger-inputarea" style="margin-top: auto; width: 100%;">
-                        <input type="text" id="messageInput" class="msger-input" placeholder="Enter your message..." style="width: 90%;">
-                        <img src="img/send.png" id="sendMessageButton" style="width: 40px; height: 40px;">
-                    </form>
-            </main>
-		</section>
+			<section class="msger" style="display: flex; justify-content: center; align-items: center; height: calc(100% - 200px); width: 100%;">
+				<main class="msger-chat" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; width: calc(100% - 40px); margin: 20px; border-radius: 8px;">
+						<header class="msger-header" style="border-top-left-radius: 8px; border-top-right-radius: 8px;">
+							<div class="msger-header-title" id="headerContainer">
+						</header>
+				   
+						<div id="chatArea" style="overflow-y: auto; flex-grow: 1; width: 100%; max-height: 450px; padding: 20px; background-color: white; border-radius: 8px;">
+							<!-- Chat messages will be displayed here -->
+						</div>
+						<form class="msger-inputarea" style="margin-top: auto; width: 100%; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
+							<input type="text" id="messageInput" class="msger-input" placeholder="Enter your message..." style="width: 100%; border-radius: 8px;">
+							<img src="img/send.png" id="sendMessageButton" style="width: 40px; height: 40px;">
+						</form>
+				</main>
+			</section>
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->

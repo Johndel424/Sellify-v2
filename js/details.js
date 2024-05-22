@@ -32,10 +32,11 @@ itemRef.once('value', (snapshot) => {
                 </div>
                 <div class="right-column" style="flex: 1; min-width: 100%; padding: 20px; margin: 0 auto;">
                     <p style="font-family: Arial, sans-serif; font-size: 30px; font-weight: bold; text-transform: uppercase; text-align: center;">${item.dataTitle}</p>
-                    <p class="desc" style="text-align: center; font-family: Arial, sans-serif; font-size: 16px;">${item.dataDesc}</p>
+                    <h3 style="text-align: center;">${item.dataLang}</h3>
                     <p style="text-align: center;">${item.category}</p>
                     <p style="text-align: center;">${item.status}</p>
-                    <h3 style="text-align: center;">${item.dataLang}</h3>
+             
+                    <p class="desc" style="text-align: center; font-family: Arial, sans-serif; font-size: 16px;">${item.dataDesc}</p>
                     <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
                         <div class="circle-pic" style="margin-right: 10px;">
                             <img src="${item.profile}" alt="" style="border-radius: 50%; width: 30px; height: 30px;">

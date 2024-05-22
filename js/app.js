@@ -31,7 +31,7 @@ function loginUser(event) {
           // Redirect to home.html after clicking OK
           window.location.href = "home.html";
         }
-      });
+      }); 
     })
     .catch((error) => {
       var errorCode = error.code;
@@ -59,6 +59,20 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+document.getElementById('login').addEventListener('click', GoogleLogin)
+let provider = new firebase.auth.GoogleAuthProvider()
+
+      function GoogleLogin(){
+        console.log('Login Btn Call')
+        firebase.auth().signInWithPopup(provider).then(res=>{
+          console.log(res.user)
+          document.getElementById('LoginScreen').style.display="none"
+          document.getElementById('dashboard').style.display="block"
+          showUserDetails(res.user)
+        }).catch(e=>{
+          console.log(e)
+        })
+      }
 
 
 // document.getElementById("loginForm").addEventListener("submit", function(e) {
