@@ -13,6 +13,27 @@
 .sub{
 	display: none;
 }
+/* Style for the header container */
+.header {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    padding: 10px; /* Optional padding */
+}
+
+/* Style for the profile image */
+.profile-img {
+    width: 50px; /* Set a fixed width for the image */
+    height: 50px; /* Set a fixed height for the image */
+    border-radius: 50%; /* Make the image circular */
+    margin-right: 10px; /* Space between image and username */
+}
+
+/* Style for the username text */
+.username {
+    font-size: 1.2em; /* Adjust font size as needed */
+    font-weight: bold; /* Make text bold */
+}
+
 #itemsContainer {
 	display: grid;
 	margin-top: 10px;

@@ -30,78 +30,79 @@ auth.onAuthStateChanged(user => {
     }
 });
 function retrieveChatRooms(currentUserId, currentUserUsername) {
-    const chatRoomsRef = db.ref('chatrooms');
+  const chatRoomsRef = db.ref('chatrooms');
 
-    // Query for chat rooms where otherId is currentUserId
-    const query1 = chatRoomsRef.orderByChild('otherId').equalTo(currentUserId).once('value');
+  // Query for chat rooms where otherId is currentUserId
+  const query1 = chatRoomsRef.orderByChild('otherId').equalTo(currentUserId).once('value');
 
-    // Query for chat rooms where userId is currentUserId
-    const query2 = chatRoomsRef.orderByChild('userId').equalTo(currentUserId).once('value');
+  // Query for chat rooms where userId is currentUserId
+  const query2 = chatRoomsRef.orderByChild('userId').equalTo(currentUserId).once('value');
 
-    // Execute both queries asynchronously using Promise.all
-    Promise.all([query1, query2])
-        .then(results => {
-            const chatRoomsList = document.getElementById('chatRoomsList');
+  // Execute both queries asynchronously using Promise.all
+  Promise.all([query1, query2])
+      .then(results => {
+          const chatRoomsList = document.getElementById('chatRoomsList');
 
-            results.forEach(snapshot => {
-                snapshot.forEach(childSnapshot => {
-                    const chatRoomData = childSnapshot.val();
-                    const chatRoomId = childSnapshot.key;
-                    let profileImgUrl;
+          results.forEach(snapshot => {
+              snapshot.forEach(childSnapshot => {
+                  const chatRoomData = childSnapshot.val();
+                  const chatRoomId = childSnapshot.key;
+                  let profileImgUrl;
 
-                    // Check if the current user is the user or the other user
-                    if (chatRoomData.otherId === currentUserId) {
-                        profileImgUrl = chatRoomData.currentUserImg;
-                    } else {
-                        profileImgUrl = chatRoomData.otherUserImg;
-                    }
+                  // Check if the current user is the user or the other user
+                  if (chatRoomData.otherId === currentUserId) {
+                      profileImgUrl = chatRoomData.currentUserImg;
+                  } else {
+                      profileImgUrl = chatRoomData.otherUserImg;
+                  }
 
-                    // Create list item element
-                    const listItem = document.createElement('li');
-                    listItem.classList.add('listItem');
+                  // Create list item element
+                  const listItem = document.createElement('li');
+                  listItem.classList.add('listItem');
 
-                    // Create container for profile image
-                    const profileImgContainer = document.createElement('div');
-                    profileImgContainer.classList.add('profileImagesContainer');
+                  // Create container for profile image
+                  const profileImgContainer = document.createElement('div');
+                  profileImgContainer.classList.add('profileImagesContainer');
 
-                    if (profileImgUrl) {
-                        // Create image element for the profile image
-                        const imgElement = document.createElement('img');
-                        imgElement.src = profileImgUrl;
-                        imgElement.alt = "Profile Image";
-                        imgElement.style.width = "40px"; // Set width to desired size
-                        imgElement.style.height = "40px";
+                  if (profileImgUrl) {
+                      // Create image element for the profile image
+                      const imgElement = document.createElement('img');
+                      imgElement.src = profileImgUrl;
+                      imgElement.alt = "Profile Image";
+                      imgElement.style.width = "40px"; // Set width to desired size
+                      imgElement.style.height = "40px";
 
-                        // Append image element to profile image container
-                        profileImgContainer.appendChild(imgElement);
-                    } else {
-                        console.error(`No profile image found for chat room ${chatRoomId}`);
-                    }
+                      // Append image element to profile image container
+                      profileImgContainer.appendChild(imgElement);
+                  } else {
+                      console.error(`No profile image found for chat room ${chatRoomId}`);
+                  }
 
-                    if (chatRoomData.otherId === currentUserId) {
-                        listItem.textContent = `${chatRoomData.currentUserUsername}`;
-                    } else {
-                        listItem.textContent = `${chatRoomData.otherUsername}`;
-                    }
+                  if (chatRoomData.otherId === currentUserId) {
+                      listItem.textContent = `${chatRoomData.currentUserUsername}`;
+                  } else {
+                      listItem.textContent = `${chatRoomData.otherUsername}`;
+                  }
 
-                    // Append profile image container to list item
-                    listItem.appendChild(profileImgContainer);
+                  // Append profile image container to list item
+                  listItem.appendChild(profileImgContainer);
 
-                    // Add click event listener to list item
-                    listItem.addEventListener('click', function() {
-                        // Redirect to message.html with chatRoomId as parameter
-                        window.location.href = `message.html?chatRoomId=${encodeURIComponent(chatRoomId)}`;
-                    });
+                  // Add click event listener to list item
+                  listItem.addEventListener('click', function() {
+                      // Redirect to message.html with chatRoomId as parameter
+                      window.location.href = `message.html?chatRoomId=${encodeURIComponent(chatRoomId)}`;
+                  });
 
-                    // Append list item to unordered list
-                    chatRoomsList.appendChild(listItem);
-                });
-            });
-        })
-        .catch(error => {
-            console.error("Error retrieving chat rooms:", error);
-        });
-}
+                  // Append list item to unordered list
+                  chatRoomsList.appendChild(listItem);
+              });
+          });
+      })
+      .catch(error => {
+          console.error("Error retrieving chat rooms:", error);
+      });
+} 
+
 
 
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');

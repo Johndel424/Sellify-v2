@@ -132,11 +132,11 @@ function displayMessage(message) {
 
 // Function to display the header with other user details
 function displayHeader(otherUserData) {
-    // Create header HTML
+    // Create header HTML with inline styles
     const headerHtml = `
-        <div id="header" class="msg-text">
-            <img src="${otherUserData.profileImg}" alt="Profile Image">
-            <span>${otherUserData.username}</span>
+        <div id="header" style="display: flex; align-items: center; padding: 10px;">
+            <img src="${otherUserData.profileImg}" alt="Profile Image" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 10px;">
+            <span style="font-size: 1.2em; font-weight: bold;">${otherUserData.username}</span>
         </div>
     `;
 
